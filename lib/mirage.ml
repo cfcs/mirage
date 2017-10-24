@@ -88,7 +88,7 @@ let gui_qubes = impl @@ object
     Fmt.strf
       "@[<v 2>\
        %s.connect ~domid:0 () >>= fun gui ->@ \
-       Lwt.async (fun () -> %s.listen gui);@ \
+       Lwt.async (%s.listen gui);@ \
        Lwt.return (`Ok gui)@]"
       modname modname
 end
