@@ -1789,7 +1789,7 @@ let compile libs warn_error target =
       "principal";
       "safe_string" ] @
     (if warn_error then ["warn_error(+1..49)"] else []) @
-    (match target with `MacOSX -> ["thread"] | _ -> []) @
+    (match target with `Unix | `MacOSX -> ["thread"] | _ -> []) @
     (if terminal () then ["color(always)"] else [])
   and result = match target with
     | `Unix | `MacOSX -> "main.native"
