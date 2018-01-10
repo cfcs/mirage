@@ -423,7 +423,7 @@ class block_conf file =
       | `Unix | `MacOSX | `Virtio | `Ukvm ->
         Fpath.(to_string (root / b.filename)) (* open the file directly *)
       | `Xen | `Qubes ->
-        xenstore_id_of_index b.number |> string_of_int
+        xenstore_id_of_index (int_of_string b.filename) |> string_of_int
 
     method! connect i s _ =
       Fmt.strf "%s.connect %S" s
